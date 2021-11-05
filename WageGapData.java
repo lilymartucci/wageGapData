@@ -5,13 +5,12 @@ import java.util.*;
 public class WageGapData{
 
   public static void main (String[] args) throws FileNotFoundException{
-    //genderBonus("GenderPayGapData2122Mod.csv");
+    genderBonus("GenderPayGapData2122Mod.csv");
     topMedian("GenderPayGapData2122Mod.csv");
 
   }
 
-  //Companies provide the percent of their employees by gender that receive a bonus. Which gender receives more of a bonus?
-  // method to go through data and make array list of it
+  // method to go through data and make arrayList of arrayList of strings
   public static ArrayList<ArrayList<String>> organizeData (String pathname) throws FileNotFoundException{
     File f = new File(pathname);
     Scanner sc = new Scanner(f);
@@ -69,27 +68,27 @@ public class WageGapData{
 
   public static void topMedian (String pathname) throws FileNotFoundException {
     ArrayList<ArrayList<String>> dataList = organizeData(pathname);
-    //avg bonus percent for men
     //loop to add bonus percents
     double maleUpperMedian =0.0;
     double femaleUpperMedian =0.0;
     int count =0;
-
+    //looping through data to get maleUpperMedian average
     for(int i=0; i<dataList.size(); i++){
       maleUpperMedian += Double.parseDouble(dataList.get(i).get(2));
       count++;
     }
-
+    //looping through data to get femaleUpperMedian average
     for(int i=0; i<dataList.size(); i++){
       femaleUpperMedian += Double.parseDouble(dataList.get(i).get(3));
     }
-
+    //calculating averages
     maleUpperMedian = maleUpperMedian/count;
-    femaleUpperMedian =femaleUpperMedian/count;
-    if(femaleUpperMedian >  maleUpperMedian ){
+    femaleUpperMedian = femaleUpperMedian/count;
+    //understanding data
+    if(femaleUpperMedian > maleUpperMedian ){
       System.out.println("In the year of 2021-2022 female upper median salary average (" + femaleUpperMedian + ") is greater than male upper median salary average");
     }
-    else if(maleUpperMedian >   femaleUpperMedian ){
+    else if(maleUpperMedian > femaleUpperMedian ){
       System.out.println("In the year of 2021-2022 male upper median salary average (" + maleUpperMedian + ") is greater than female upper median salary average");
     }
     else{
