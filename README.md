@@ -2,6 +2,8 @@
 
 Enjoy!
 
+(please disregard the GenderPayGapData2122.csv file)
+
 ## Introduction
 
 As a young woman, the gender pay gap is particularly of interest to me because it places me and other women at a disadvantage. Additionally, as a woman
